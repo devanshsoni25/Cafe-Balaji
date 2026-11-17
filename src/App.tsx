@@ -209,7 +209,7 @@ function TableQrModal({
 // ── Main App ───────────────────────────────────────────────────────────────────
 function App() {
   const [activeCategory, setActiveCategory] = useState<string>(categories[0])
-  const [showQrModal, setShowQrModal] = useState<boolean>(false)
+
   const isClickScrolling = useRef(false)
   const clickTimeoutRef = useRef<number | null>(null)
 
@@ -271,14 +271,6 @@ function App() {
               <span className="veg-badge__circle" />
               100% PURE VEG
             </span>
-            <button
-              type="button"
-              className="qr-standee-trigger"
-              onClick={() => setShowQrModal(true)}
-              title="View and print table QR code"
-            >
-              📷 Table QR Code
-            </button>
           </div>
 
           <h1 className="cafe-header__name">Shree Balaji Snacks &amp; Food Zone</h1>
@@ -329,21 +321,11 @@ function App() {
             <p className="cafe-footer__note">Please order at counter • Pure Veg</p>
           </div>
 
-          <button
-            type="button"
-            className="footer-qr-btn"
-            onClick={() => setShowQrModal(true)}
-          >
-            🖨️ Get Printable Table QR Code
-          </button>
+
         </div>
       </footer>
 
-      {/* Single Universal Table QR Standee Print/Download Modal */}
-      <TableQrModal
-        isOpen={showQrModal}
-        onClose={() => setShowQrModal(false)}
-      />
+
     </div>
   )
 }
